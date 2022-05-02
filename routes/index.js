@@ -7,13 +7,13 @@ router.post('/article', function (req, res, next) {
   const fs = require('fs')
   try {
     const data = fs.writeFileSync(
-      'C:\\Users\\1\\Desktop\\test.txt',
+      'test/test.txt',
       req.body.content,
       { flag: 'w+' }
     )
     //文件写入成功
     //读取出来
-    const txtdata = fs.readFileSync('C:\\Users\\1\\Desktop\\test.txt', 'utf8')
+    const txtdata = fs.readFileSync('test/test.txt', 'utf8')
     res.status(200).send(txtdata)
     return
   } catch (err) {
@@ -29,7 +29,7 @@ router.get('/readStudent', function (req, res, next) {
   const fs = require('fs')
 
   try {
-    const data = fs.readFileSync('C:\\Users\\1\\Desktop\\student.txt', 'utf8')
+    const data = fs.readFileSync('test/student.txt', 'utf8')
     res.status(200).send(data)
     return
   } catch (err) {
@@ -42,7 +42,7 @@ router.post('/saveScore', function (req, res) {
   const fs = require('fs')
   const content = req.body.content
   try {
-    const data = fs.writeFileSync('C:\\Users\\1\\Desktop\\score.txt', content,{ flag: 'w+' })
+    const data = fs.writeFileSync('test/score.txt', content,{ flag: 'w+' })
     //文件写入成功。
     res.status(200).send('写入成功')
     return 
